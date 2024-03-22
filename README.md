@@ -15,13 +15,25 @@ This App was build using Javascript, HTML, CSS and  the React library. It is a s
 
 # Installation
 
-1. git clone git@github.com:Ogenbertrand/React-Calculator.git
+1. Clone the repository
+```bash
+    git clone git@github.com:Ogenbertrand/React-Calculator.git
+```
 
-2. cd React-Calculator
+2. navigate in the calculator directory
+```bash
+    cd React-Calculator
+```
 
-3. npm install
+3. Install all dependencies
+```bash
+    npm install
+```
 
-4. npm run dev
+4. Run the Application using 
+```bash
+    npm run dev
+```
 
 
 # Contributions
