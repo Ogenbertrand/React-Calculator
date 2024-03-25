@@ -32,15 +32,15 @@ const App = () => {
     e.preventDefault();
     const value = e.target.innerHTML;
 
-    if (removeSpaces(calc.num).length < 16) {
+    if (removeSpaces(calc.num).length < 20) {
       setCalc({
         ...calc,
         num:
           calc.num === 0 && value === "0"
             ? "0"
             : removeSpaces(calc.num) % 1 === 0
-            ? toLocaleString(Number(removeSpaces(calc.num + value)))
-            : toLocaleString(calc.num + value),
+              ? toLocaleString(Number(removeSpaces(calc.num + value)))
+              : toLocaleString(calc.num + value),
         res: !calc.sign ? 0 : calc.res,
       });
     }
@@ -57,7 +57,7 @@ const App = () => {
     });
   };
 
-// invert click handler
+  // invert click handler
   const invertClickHandler = () => {
     setCalc(calc => ({
       ...prevCalc,
@@ -144,23 +144,34 @@ const App = () => {
                 btn === "C"
                   ? resetClickHandler
                   : btn === "+-"
-                  ? invertClickHandler
-                  : btn === "%"
-                  ? percentClickHandler
-                  : btn === "="
-                  ? equalClickHandler
-                  : btn === "/" || btn === "*" || btn === "-" || btn === "+"
-                  ? signClickHandler
-                  : btn === "."
-                  ? commaClickHandler
-                  : numClickHandler
+                    ? invertClickHandler
+                    : btn === "%"
+                      ? percentClickHandler
+                      : btn === "="
+                        ? equalClickHandler
+                        : btn === "/" || btn === "*" || btn === "-" || btn === "+"
+                          ? signClickHandler
+                          : btn === "."
+                            ? commaClickHandler
+                            : numClickHandler
               }
             />
           );
         })}
       </ButtonBox>
     </Wrapper>
+    
   );
 };
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js')
+    .then((registration) => {
+      console.log('SW registered: ', registration);
+    }).catch(function(error) {
+      console.log('SW registration failed: ', error);
+    });
+  });
+}
 
 export default App;
