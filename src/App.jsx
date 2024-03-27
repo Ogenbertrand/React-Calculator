@@ -6,7 +6,6 @@ import ButtonBox from './components/ButtonBox';
 import Button from './components/Button';
 import './App.css';
 
-
 const btnValues = [
   ["C", "+-", "%", "/"],
   [7, 8, 9, "*"],
@@ -163,15 +162,5 @@ const App = () => {
     
   );
 };
-if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function() {
-    navigator.serviceWorker.register('/sw.js')
-    .then((registration) => {
-      console.log('SW registered: ', registration);
-    }).catch(function(error) {
-      console.log('SW registration failed: ', error);
-    });
-  });
-}
 
 export default App;
