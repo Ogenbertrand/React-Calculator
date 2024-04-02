@@ -18,6 +18,8 @@ export default defineConfig({
       },
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'favicon.svg', 'favicon.png'],
       injectRegister: 'auto',
+
+      includeAssets: ['service-worker.js'],
       
       manifest: {
         name: 'Calculator App',
