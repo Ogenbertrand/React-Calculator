@@ -40,3 +40,5 @@ This App was build using Javascript, HTML, CSS and  the React library. It is a s
 
 Any features requested  or improvements are welcome!
 
+
+this is a new commit
