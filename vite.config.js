@@ -57,3 +57,4 @@ export default defineConfig({
     }),
   ],
 });
+// src/vite.config.js
