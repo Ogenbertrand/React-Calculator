@@ -16,7 +16,6 @@ button {
   }
   
   .equals {
-    grid-column: 3 / 5;
     background-color: rgb(243, 61, 29);
   }
   
