@@ -11,8 +11,9 @@ const btnValues = [
   [7, 8, 9, "*"],
   [4, 5, 6, "-"],
   [1, 2, 3, "+"],
-  [0, ".", "="],
+  [0, ".", "←", "="],  
 ];
+
 
 const toLocaleString = (num) =>
   String(num).replace(/(?<!\..*)(\d)(?=(?:\d{3})+(?:\.|$))/g, "$1 ");
@@ -100,6 +101,17 @@ const App = () => {
     }));
   };
 
+  // Backspace (Cancel) click handler
+const deleteClickHandler = () => {
+  setCalc(calc => ({
+    ...calc,
+    num: calc.num.length > 1
+      ? toLocaleString(removeSpaces(calc.num).slice(0, -1))
+      : 0,
+  }));
+};
+
+
   // equal click handler
   const equalClickHandler = () => {
     if (calc.sign && calc.num) {
@@ -152,7 +164,9 @@ const App = () => {
                           ? signClickHandler
                           : btn === "."
                             ? commaClickHandler
-                            : numClickHandler
+                            : btn === "←"
+                              ? deleteClickHandler
+                              : numClickHandler
               }
             />
           );
