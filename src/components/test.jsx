@@ -5,4 +5,9 @@ function calculate(x, y) {
         return null;
     }
 }
+
+function unusedFunction() { // Unused function warning
+    console.log("This function is never used.");
+}
 export default calculate;
+
